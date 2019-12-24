@@ -2,6 +2,7 @@ package com.zyn.springcloud.controller;
 
 import com.zyn.springcloud.entities.Dept;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,7 +36,13 @@ public class DeptController_Consumer
     public List<Dept> list()
     {
          return restTemplate.getForObject(REST_URL_PREFIX+"/dept/list", List.class);
-    }   
+    }
+
+    @RequestMapping(value="/consumer/dept/discovery")
+    public Object discovery(){
+
+       return restTemplate.getForObject(REST_URL_PREFIX+"/dept/discovery", Object.class);
+    }
 }
  
  

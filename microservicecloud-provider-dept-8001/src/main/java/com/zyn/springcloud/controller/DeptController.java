@@ -3,6 +3,8 @@ package com.zyn.springcloud.controller;
 import com.zyn.springcloud.entities.Dept;
 import com.zyn.springcloud.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +15,9 @@ public class DeptController {
 
   @Autowired
   private DeptService service;
+
+  @Autowired
+  private DiscoveryClient discoveryClient;
   
   @RequestMapping(value="/dept/add",method=RequestMethod.POST)
   public boolean add(@RequestBody Dept dept) {
@@ -30,8 +35,22 @@ public class DeptController {
   {
    return service.list();
   }
-  
-  
+
+  @RequestMapping(value = "/dept/discovery",method = RequestMethod.GET)
+  public Object discovery(){
+
+    List<String> services = discoveryClient.getServices();
+
+    System.out.println(services);
+
+    List<ServiceInstance> serviceInstances = discoveryClient.getInstances("MICROSERVICECLOUD-DEPT");
+    for (ServiceInstance serviceInstance : serviceInstances) {
+      System.out.println(serviceInstance.getServiceId()+"\t"+serviceInstance.getHost()+"\t"+serviceInstance.getPort()+"\t"+serviceInstance.getUri());
+
+    }
+
+    return this.discoveryClient;
+  }
   
 }
  
