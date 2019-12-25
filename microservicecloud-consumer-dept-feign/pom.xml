@@ -11,9 +11,9 @@
     </parent>
 
     <groupId>com.zyn.springcloud</groupId>
-    <artifactId>microservicecloud-consumer-dept-80</artifactId>
+    <artifactId>microservicecloud-consumer-dept-feign</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>microservicecloud-consumer-dept-80</name>
+    <name>microservicecloud-consumer-dept-feign</name>
     <description>Demo project for Spring Boot</description>
 
 
@@ -69,6 +69,13 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
+
+        <!--Feign相关-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

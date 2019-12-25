@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>microservicecloud-eureka-7001</artifactId>
+    <artifactId>microservicecloud-eureka-7003</artifactId>
 
     <dependencies>
         <!--eureka-server服务端 -->

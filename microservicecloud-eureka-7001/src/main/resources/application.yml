@@ -4,12 +4,13 @@ server:
 
 eureka:
   instance:
-    hostname: localhost #eureka服务器端的服务名称
+    hostname: payment.mall.com #eureka服务器端的服务名称
   client:
     register-with-eureka: false #表示不向注册中心注册自己
     fetch-registry: false #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址。
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #单机，设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址。
+      defaultZone: http://cart.mall.com:7002/eureka/,http://order.mall.com:7003/eureka/
 
 logging:
   level: info
