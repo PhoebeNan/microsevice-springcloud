@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
- 
+
 @RestController
 public class DeptController {
 
@@ -25,8 +25,8 @@ public class DeptController {
   }
   
   @RequestMapping(value="/dept/get/{id}",method=RequestMethod.GET)
-  public Dept get(@PathVariable("id") Long id)
-  {
+  public Dept get(@PathVariable("id") Long id) {
+    
    return service.get(id);
   }
   

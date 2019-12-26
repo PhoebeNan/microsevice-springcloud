@@ -1,5 +1,5 @@
 server:
-  port: 8003
+  port: 8001
 
 mybatis:
   config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
@@ -13,7 +13,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
     driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
-    url: jdbc:mysql://localhost:3306/cloudDB03?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=false             # 数据库名称
+    url: jdbc:mysql://localhost:3306/cloudDB01?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=false             # 数据库名称
     username: root
     password: 1234
     dbcp2:
@@ -28,7 +28,7 @@ eureka:
       #defaultZone: http://localhost:7001/eureka
       defaultZone: http://payment.mall.com:7001/eureka,http://cart.mall.com:7002/eureka/,http://order.mall.com:7003/eureka/
   instance:
-    instance-id: microservicecloud-dept8003
+    instance-id: microservicecloud-dept8001-hystrix #自定义hystrix相关服务的名称
     prefer-ip-address: true
 
 info:
@@ -36,9 +36,3 @@ info:
   company.name: www.zyn.com
   build.artifactId: $project.artifactId$
   build.version: $project.version$
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: hystrix.stream

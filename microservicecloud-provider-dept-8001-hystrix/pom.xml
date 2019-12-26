@@ -11,9 +11,9 @@
     </parent>
 
     <groupId>com.zyn.springcloud</groupId>
-    <artifactId>microservicecloud-provider-dept-8003</artifactId>
+    <artifactId>microservicecloud-provider-dept-8001-hystrix</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>microservicecloud-provider-dept-8003</name>
+    <name>microservicecloud-provider-dept-8001-hystrix</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -82,10 +82,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
+
+
+        <!--hystrix-->
         <dependency>
-            <groupId>com.netflix.hystrix</groupId>
-            <artifactId>hystrix-metrics-event-stream</artifactId>
-            <version>1.5.18</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix</artifactId>
         </dependency>
 
     </dependencies>

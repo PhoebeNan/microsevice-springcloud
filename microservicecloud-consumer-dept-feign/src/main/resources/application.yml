@@ -8,3 +8,7 @@ eureka:
       #defaultZone: http://localhost:7001/eureka
       defaultZone: http://payment.mall.com:7001/eureka,http://cart.mall.com:7002/eureka/,http://order.mall.com:7003/eureka/
     register-with-eureka: false  #不能把自己注册到eureka服务器
+
+feign:
+  hystrix:
+    enabled: true

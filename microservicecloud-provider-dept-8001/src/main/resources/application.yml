@@ -36,3 +36,4 @@ info:
   company.name: www.zyn.com
   build.artifactId: $project.artifactId$
   build.version: $project.version$
+
