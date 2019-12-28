@@ -1,0 +1,25 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: microservicecloud-zuul-gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://payment.mall.com:7001/eureka,http://cart.mall.com:7002/eureka/,http://order.mall.com:7003/eureka/
+  instance:
+    instance-id: zuul-gateway-9527
+    prefer-ip-address: true
+
+info:
+  app.name: zyn-microservicecloud
+  company.name: www.zyn.com
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@
+
+zuul:
+  routes:
+    dept.serviceId: microservicecloud-dept
+    dept.path: /mydept/**
+  ignored-services: "*"
+  prefix: /zyn
